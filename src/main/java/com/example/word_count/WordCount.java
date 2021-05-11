@@ -34,7 +34,7 @@ public class WordCount extends HttpServlet {
         String req = "SELECT word_count.files.files_name, keys.keys_value, count FROM word_count.connection" +
                 " INNER JOIN word_count.keys ON word_count.connection.keys_id_con = keys.keys_id" +
                 " INNER JOIN word_count.files ON word_count.connection.files_id_con = files.files_id" +
-                " WHERE keys_id_con = ?";
+                " WHERE keys_id_con = ? ORDER BY word_count.connection.count DESC";
         CheckingFiles checkingFiles = new CheckingFiles();
         try {
             Properties p=new Properties();
@@ -45,6 +45,13 @@ public class WordCount extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, p);
             if (checking){
+                String SQL = "DELETE FROM word_count.connection";
+                String SQL2 = "DELETE FROM word_count.keys";
+                String SQL3 = "DELETE FROM word_count.files";
+                Statement sm = connection.createStatement();
+                sm.executeUpdate(SQL);
+                sm.executeUpdate(SQL2);
+                sm.executeUpdate(SQL3);
                 String path = "d:/work/word_count/data/";
                 Map<String, Filesmap> maps = checkingFiles.countWords(path);
                 File[] listOfFiles = new File(path).listFiles();
