@@ -1,0 +1,45 @@
+Long Short-Term Memory (LSTM) networks are a type of recurrent neural network capable of learning order dependence in sequence prediction problems.
+
+This is a behavior required in complex problem domains like machine translation, speech recognition, and more.
+
+LSTMs are a complex area of deep learning. It can be hard to get your hands around what LSTMs are, and how terms like bidirectional and sequence-to-sequence relate to the field.
+
+In this post, you will get insight into LSTMs using the words of research scientists that developed the methods and applied them to new and important problems.
+
+There are few that are better at clearly and precisely articulating both the promise of LSTMs and how they work than the experts that developed them.
+
+We will explore key questions in the field of LSTMs using quotes from the experts, and if you’re interested, you will be able to dive into the original papers from which the quotes were taken.
+
+Kick-start your project with my new book Long Short-Term Memory Networks With Python, including step-by-step tutorials and the Python source code files for all examples.
+
+Let’s get started.
+
+A Gentle Introduction to Long Short-Term Memory Networks by the Experts
+A Gentle Introduction to Long Short-Term Memory Networks by the Experts
+Photo by Oran Viriyincy, some rights reserved.
+
+The Promise of Recurrent Neural Networks
+Recurrent neural networks are different from traditional feed-forward neural networks.
+
+This difference in the addition of complexity comes with the promise of new behaviors that the traditional methods cannot achieve.
+
+Recurrent networks … have an internal state that can represent context information. … [they] keep information about past inputs for an amount of time that is not fixed a priori, but rather depends on its weights and on the input data.
+
+…
+
+A recurrent network whose inputs are not fixed but rather constitute an input sequence can be used to transform an input sequence into an output sequence while taking into account contextual information in a flexible way.
+
+— Yoshua Bengio, et al., Learning Long-Term Dependencies with Gradient Descent is Difficult, 1994.
+
+The paper defines 3 basic requirements of a recurrent neural network:
+
+That the system be able to store information for an arbitrary duration.
+That the system be resistant to noise (i.e. fluctuations of the inputs that are random or irrelevant to predicting a correct output).
+That the system parameters be trainable (in reasonable time).
+The paper also describes the “minimal task” for demonstrating recurrent neural networks.
+
+Context is key.
+
+Recurrent neural networks must use context when making predictions, but to this extent, the context required must also be learned.
+
+… recurrent neural networks contain cycles that feed the network activations from a previous time step as inputs to the network to influence predictions at the current time step. These activations are stored in the internal states of the network which can in principle hold long-term temporal contextual information. This mechanism allows RNNs to exploit a dynamically changing contextual window over the input sequence history
